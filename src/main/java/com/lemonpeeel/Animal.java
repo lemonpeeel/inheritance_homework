@@ -4,8 +4,8 @@ public class Animal {
 
     String name;
     // Human 에 BMI 계산기 만들 예정이다.
-    String weight;
-    String height;
+    double weightInKilogram;
+    double metricHeight;
     String food;
 
     boolean hungry;

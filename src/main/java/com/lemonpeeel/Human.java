@@ -1,7 +1,8 @@
 package com.lemonpeeel;
+import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.Stack;
+
 
 public class Human extends Mammal{
     Scanner scan = new Scanner(System.in);
@@ -12,19 +13,35 @@ public class Human extends Mammal{
 
 
     public void study() {
-        Scanner scan = new Scanner(System.in);
-        this.name = name;
         String discipline;
+        int hour;
+        int minute;
 
         System.out.println(name + "이/가 공부할 과목/주제를 입력하세요.");
         discipline = scan.nextLine();
 
-        System.out.println(name + "이/가 " + discipline + "을/를 공부합니다.");
+        System.out.println("공부할 시간을 입력하세요.");
+
+        System.out.println("시간: ");
+        hour = Integer.parseInt(scan.nextLine());
+
+        System.out.println("분: ");
+        minute = Integer.parseInt(scan.nextLine());
+
+        if (hour >=1 & minute >= 0) {
+        System.out.println(MessageFormat.format("{0}이/가 {1}을/를 {2}시간 {3}분 동안 공부합니다.", name, discipline, hour, minute));}
+
+
+        if (hour >= 4) {
+            isTired = true;
+            System.out.println("4시간 이상 공부하여 피로가 쌓였습니다.");
+            this.sleep();
+
+        }
     }
 
-    public void belongToCommunity() {
-        Scanner scan = new Scanner(System.in);
 
+    public void belongToCommunity() {
 
         System.out.println(name + "의 나이를 입력해 주세요. (한국식 나이)");
         this.age = Integer.parseInt(scan.nextLine());
@@ -61,6 +78,17 @@ public class Human extends Mammal{
             System.out.println("한국식 나이는 0 이하일 수 없습니다.");
             return;
         }
+    }
+
+    public double calculateBMI(String firstString, String secondString) {
+
+        weightInKilogram = Double.parseDouble(firstString);
+        metricHeight = Double.parseDouble(secondString);
+
+        double bodyMassIndex = weightInKilogram / Math.pow(metricHeight, 2);
+
+        // 메인에 비만인지 아닌지 알려주는 코드 짤 예정이다.
+        return bodyMassIndex;
     }
 
 
