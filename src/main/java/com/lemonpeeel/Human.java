@@ -87,7 +87,6 @@ public class Human extends Mammal{
 
         double bodyMassIndex = weightInKilogram / Math.pow(metricHeight, 2);
 
-        // 메인에 비만인지 아닌지 알려주는 코드 짤 예정이다.
         return bodyMassIndex;
     }
 
